@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>أرشيف المواثيق</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="index.html">♡ عهود ومواثيق</a>
+    <nav class="nav-links">
+      <a href="index.html">الرئيسية</a>
+      <a href="dashboard.html">لوحة التحكم</a>
+      <a href="create.html">إنشاء ميثاق</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page-wrap">
+
+<div class="container">
+
+  <div class="panel-head">
+
+    <div>
+      <h1 class="page-title">أرشيف المواثيق</h1>
+
+      <p class="subtext">
+        كل المواثيق التي أنشأتها على هذا المتصفح.
+      </p>
+    </div>
+
+    <a href="create.html" class="btn btn-primary">
+      ＋ ميثاق جديد
+    </a>
+
+  </div>
+
+  <div class="panel">
+
+    <div id="archiveList" class="agreement-list"></div>
+
+    <div class="notice">
+      البيانات محفوظة في هذا المتصفح فقط،
+      وليست خاصة أو آمنة للاستخدام الحقيقي.
+    </div>
+
+    <button id="clearDemo" class="btn btn-danger btn-sm">
+      حذف بيانات التجربة
+    </button>
+
+  </div>
+
+</div>
+
+</main>
+
+<script src="js/app.js"></script>
+
+</body>
+</html>

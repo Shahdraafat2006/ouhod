@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تسجيل الدخول</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="index.html">♡ عهود ومواثيق</a>
+    <a href="index.html" class="btn btn-outline btn-sm">الرئيسية</a>
+  </div>
+</header>
+
+<main class="auth-wrap">
+
+  <form class="auth-card" id="loginForm">
+
+    <span class="eyebrow">مرحبًا بعودتك</span>
+
+    <h1>تسجيل الدخول</h1>
+
+    <p>ادخل إلى مساحة مواثيقك الخاصة.</p>
+
+    <div class="field">
+      <label>البريد الإلكتروني</label>
+      <input
+        id="loginEmail"
+        type="email"
+        placeholder="name@example.com"
+        required
+      >
+    </div>
+
+    <div class="field">
+      <label>كلمة المرور</label>
+      <input
+        type="password"
+        placeholder="كلمة المرور"
+        required
+      >
+    </div>
+
+    <button class="btn btn-primary" style="width:100%">
+      دخول
+    </button>
+
+    <p style="text-align:center">
+      ليس لديك حساب؟
+      <a href="register.html" style="color:var(--dark)">
+        أنشئ حسابًا
+      </a>
+    </p>
+
+    <div class="notice">
+      تسجيل الدخول هنا تجريبي فقط، وليس نظام مصادقة حقيقيًا.
+    </div>
+
+  </form>
+
+</main>
+
+<script src="js/app.js"></script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>إنشاء حساب</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="index.html">♡ عهود ومواثيق</a>
+    <a href="index.html" class="btn btn-outline btn-sm">الرئيسية</a>
+  </div>
+</header>
+
+<main class="auth-wrap">
+
+  <form class="auth-card" id="registerForm">
+
+    <span class="eyebrow">ابدأ مساحة مواثيقك</span>
+
+    <h1>إنشاء حساب جديد</h1>
+
+    <p>أنشئ حسابك للبدء في تنظيم مواثيقك.</p>
+
+    <div class="field">
+      <label>الاسم</label>
+      <input
+        id="regName"
+        placeholder="الاسم الذي سيظهر"
+        required
+      >
+    </div>
+
+    <div class="field">
+      <label>البريد الإلكتروني</label>
+      <input
+        id="regEmail"
+        type="email"
+        placeholder="name@example.com"
+        required
+      >
+    </div>
+
+    <div class="field">
+      <label>كلمة المرور</label>
+      <input
+        id="regPassword"
+        type="password"
+        minlength="6"
+        placeholder="6 أحرف على الأقل"
+        required
+      >
+    </div>
+
+    <button class="btn btn-primary" style="width:100%">
+      إنشاء الحساب
+    </button>
+
+    <p style="text-align:center">
+      لديك حساب؟
+      <a href="login.html" style="color:var(--dark)">
+        تسجيل الدخول
+      </a>
+    </p>
+
+    <div class="notice">
+      هذه نسخة تجريبية، لا تستخدمي كلمة مرور حقيقية.
+    </div>
+
+  </form>
+
+</main>
+
+<script src="js/app.js"></script>
+</body>
+</html>
+
+

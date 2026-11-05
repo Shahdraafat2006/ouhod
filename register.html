@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>إنشاء ميثاق جديد</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="index.html">♡ عهود ومواثيق</a>
+    <nav class="nav-links">
+      <a href="index.html">الرئيسية</a>
+      <a href="dashboard.html">لوحة التحكم</a>
+      <a href="archive.html">الأرشيف</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page-wrap">
+
+<div class="container">
+
+  <h1 class="page-title">إنشاء ميثاق جديد ♡</h1>
+
+  <p class="subtext">
+    املأ البيانات التالية لإنشاء اتفاق بين الطرفين.
+  </p>
+
+  <form id="agreementForm" class="panel">
+
+    <h3 style="color:#79545e">1. بيانات الميثاق</h3>
+
+    <div class="form-grid">
+
+      <div class="field">
+        <label>عنوان الميثاق</label>
+        <input
+          id="title"
+          placeholder="مثال: ميثاق الصراحة والوضوح"
+          required
+        >
+      </div>
+
+      <div class="field">
+        <label>اختيار نموذج جاهز</label>
+
+        <select id="templateSelect">
+          <option value="">كتابة ميثاق من الصفر</option>
+          <option value="honesty">الصراحة والوضوح</option>
+          <option value="respect">الاحترام المتبادل</option>
+          <option value="commitment">الالتزام والمسؤولية</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>الطرف الأول</label>
+        <input id="party1" placeholder="اسم الطرف الأول" required>
+      </div>
+
+      <div class="field">
+        <label>الطرف الثاني</label>
+        <input id="party2" placeholder="اسم الطرف الثاني" required>
+      </div>
+
+      <div class="field full">
+        <label>مقدمة العهد</label>
+        <textarea
+          id="intro"
+          placeholder="اكتب الغرض من الاتفاق..."
+        ></textarea>
+      </div>
+
+    </div>
+
+    <h3 style="color:#79545e">
+      2. الشروط والالتزامات
+    </h3>
+
+    <div id="clausesContainer"></div>
+
+    <button
+      type="button"
+      class="btn btn-soft btn-sm"
+      id="addClause"
+    >
+      ＋ إضافة بند
+    </button>
+
+    <h3 style="color:#79545e;margin-top:28px">
+      3. حالات الإخلال بالاتفاق
+    </h3>
+
+    <p class="hint">
+      اكتب التصرفات التي يعتبرها الطرفان مخالفة للاتفاق.
+    </p>
+
+    <div id="breachesContainer">
+
+      <div class="field breach-row">
+
+        <label>حالة إخلال محتملة</label>
+
+        <div style="display:flex;gap:8px">
+
+          <input
+            class="breach-text"
+            placeholder="مثال: عدم الالتزام ببند متفق عليه"
+          >
+
+          <button
+            type="button"
+            class="btn btn-danger btn-sm remove-breach"
+            onclick="this.closest('.breach-row').remove()"
+          >
+            حذف
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <button
+      type="button"
+      class="btn btn-soft btn-sm"
+      id="addBreach"
+    >
+      ＋ إضافة حالة إخلال
+    </button>
+
+    <div class="field" style="margin-top:22px">
+
+      <label>الإجراء المتفق عليه عند حدوث إخلال</label>
+
+      <textarea
+        id="response"
+        placeholder="اكتب طريقة التعامل مع المخالفة..."
+      ></textarea>
+
+    </div>
+
+    <div class="notice">
+      تأكدا من مراجعة جميع البنود قبل حفظ الميثاق.
+      هذه النسخة تجريبية ولا توفر توقيعًا إلكترونيًا موثقًا.
+    </div>
+
+    <div class="form-actions">
+
+      <button class="btn btn-primary" type="submit">
+        حفظ الميثاق وعرضه
+      </button>
+
+      <a href="dashboard.html" class="btn btn-outline">
+        إلغاء
+      </a>
+
+    </div>
+
+  </form>
+
+</div>
+
+</main>
+
+<script src="js/app.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const select = document.getElementById("templateSelect");
+
+  select.addEventListener("change", () => {
+
+    const presets = {
+
+      honesty: {
+        title: "ميثاق الصراحة والوضوح",
+        intro: "يتفق الطرفان على بناء التعامل بينهما على الصراحة والوضوح واحترام ما يتم الاتفاق عليه.",
+        clauses: [
+          ["الوضوح","الحرص على توضيح الأمور المهمة وعدم ترك مساحة لسوء الفهم.","الطرفان"],
+          ["المصارحة","مناقشة الأمور التي تؤثر على الاتفاق باحترام.","الطرفان"]
+        ],
+        breaches: [
+          "إخفاء معلومة جوهرية تتعلق بالاتفاق",
+          "تكرار مخالفة بند تم التأكيد عليه"
+        ]
+      },
+
+      respect: {
+        title: "ميثاق الاحترام المتبادل",
+        intro: "يهدف هذا الميثاق إلى تأكيد احترام الحدود والحقوق المتبادلة.",
+        clauses: [
+          ["احترام الحدود","احترام المساحة والحدود التي يوضحها كل طرف.","الطرفان"],
+          ["أسلوب الحوار","الالتزام بالحوار الهادئ وعدم التقليل من الطرف الآخر.","الطرفان"]
+        ],
+        breaches: [
+          "تجاوز الحدود المتفق عليها",
+          "استخدام أسلوب مهين أثناء الخلاف"
+        ]
+      },
+
+      commitment: {
+        title: "ميثاق الالتزام والمسؤولية",
+        intro: "يتفق الطرفان على تحمل مسؤولية التعهدات التي وافقا عليها.",
+        clauses: [
+          ["الالتزام","تنفيذ ما تم التعهد به في الوقت المتفق عليه.","الطرفان"],
+          ["الإبلاغ عن التعذر","إبلاغ الطرف الآخر عند وجود سبب يمنع تنفيذ الالتزام.","الطرفان"]
+        ],
+        breaches: [
+          "عدم تنفيذ التزام دون توضيح السبب",
+          "تغيير بند من طرف واحد"
+        ]
+      }
+
+    };
+
+    const data = presets[select.value];
+
+    if (!data) return;
+
+    document.getElementById("title").value = data.title;
+    document.getElementById("intro").value = data.intro;
+
+    const clauses = document.getElementById("clausesContainer");
+    clauses.innerHTML = "";
+
+    data.clauses.forEach(c => {
+      addClause(c[0], c[1], c[2]);
+    });
+
+    const breaches = document.getElementById("breachesContainer");
+    breaches.innerHTML = "";
+
+    data.breaches.forEach(text => {
+
+      const row = document.createElement("div");
+      row.className = "field breach-row";
+
+      row.innerHTML = `
+        <label>حالة إخلال محتملة</label>
+
+        <div style="display:flex;gap:8px">
+          <input class="breach-text" required>
+          <button type="button" class="btn btn-danger btn-sm">
+            حذف
+          </button>
+        </div>
+      `;
+
+      row.querySelector("input").value = text;
+
+      row.querySelector("button").onclick = () => row.remove();
+
+      breaches.append(row);
+
+    });
+
+  });
+
+});
+</script>
+
+</body>
+</html>

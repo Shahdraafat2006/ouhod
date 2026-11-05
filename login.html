@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة التحكم</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="index.html">♡ عهود ومواثيق</a>
+    <nav class="nav-links">
+      <a href="index.html">الرئيسية</a>
+      <a href="dashboard.html">لوحة التحكم</a>
+      <a href="create.html">إنشاء ميثاق</a>
+      <a href="archive.html">الأرشيف</a>
+    </nav>
+    <a href="register.html" class="btn btn-primary btn-sm">حساب جديد</a>
+  </div>
+</header>
+
+<main class="page-wrap">
+
+<div class="container dashboard-layout">
+
+  <aside class="sidebar">
+
+    <div class="side-user">
+      <div class="avatar">♡</div>
+      <b data-user-name>زائر</b>
+      <div class="hint">مساحة المواثيق الخاصة</div>
+    </div>
+
+    <a class="side-link active" href="dashboard.html">
+      ▦ لوحة التحكم
+    </a>
+
+    <a class="side-link" href="create.html">
+      ＋ إنشاء ميثاق
+    </a>
+
+    <a class="side-link" href="archive.html">
+      ▤ الأرشيف
+    </a>
+
+    <a class="side-link" href="clauses.html">
+      ☷ الشروط والبنود
+    </a>
+
+    <a class="side-link" href="breach.html">
+      ⚑ الإخلال بالاتفاق
+    </a>
+
+    <a class="side-link" href="profile.html">
+      ♙ الملف الشخصي
+    </a>
+
+    <button class="side-link" data-logout>
+      ↪ تسجيل الخروج
+    </button>
+
+  </aside>
+
+  <section class="dash-main">
+
+    <div id="loginNotice" class="notice" hidden>
+      أنت تتصفح الوضع التجريبي كزائر.
+      <a href="login.html"><b>سجل الدخول</b></a>
+    </div>
+
+    <div class="welcome">
+
+      <span class="eyebrow">مساحتك الخاصة</span>
+
+      <h2>
+        أهلًا بك،
+        <span data-user-name>زائر</span>
+        ♡
+      </h2>
+
+      <p>هنا يمكنك متابعة مواثيقك وإنشاء اتفاق جديد.</p>
+
+      <div style="margin-top:17px">
+        <a href="create.html" class="btn btn-primary">
+          ＋ إنشاء ميثاق
+        </a>
+      </div>
+
+    </div>
+
+    <div class="stats">
+
+      <div class="stat">
+        <span>إجمالي المواثيق</span>
+        <strong id="statTotal">0</strong>
+      </div>
+
+      <div class="stat">
+        <span>مواثيق معتمدة تجريبيًا</span>
+        <strong id="statApproved">0</strong>
+      </div>
+
+      <div class="stat">
+        <span>قيد المراجعة</span>
+        <strong id="statWaiting">0</strong>
+      </div>
+
+    </div>
+
+    <div class="panel">
+
+      <div class="panel-head">
+        <h3>أحدث المواثيق</h3>
+        <a href="archive.html" class="btn btn-soft btn-sm">
+          عرض الكل
+        </a>
+      </div>
+
+      <div id="recentAgreements" class="agreement-list"></div>
+
+    </div>
+
+  </section>
+
+</div>
+
+</main>
+
+<script src="js/app.js"></script>
+</body>
+</html>
